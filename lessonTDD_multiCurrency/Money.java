@@ -1,6 +1,10 @@
 package lessonTDD_multiCurrency;
 
-public class Money {
+public abstract class Money {
+
+    public abstract Money times(int multiplayer);
+
+
     protected int amount;
 
     @Override
@@ -9,5 +13,12 @@ public class Money {
         return amount == money.amount
                 && getClass().equals(money.getClass());
 
+    }
+
+    public static Money dollar(int amount){
+        return new Dollar(amount);
+    }
+    public static Money franc(int amount){
+        return new Franc(amount);
     }
 }
