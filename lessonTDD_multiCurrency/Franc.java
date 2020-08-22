@@ -17,6 +17,6 @@ public class Franc {
         Franc franc = (Franc) object;
         return amount == franc.amount;
     }
-    
+
 
 }
