@@ -1,8 +1,7 @@
 package lessonTDD_multiCurrency;
 
-public class Franc {
+public class Franc extends Money{
 
-    private int amount;
 
     public Franc(int amount){
         this.amount  = amount;
@@ -11,12 +10,7 @@ public class Franc {
     public Franc times(int multiplier){
         return new Franc(amount*multiplier);
     }
-
-    @Override
-    public boolean equals(Object object){
-        Franc franc = (Franc) object;
-        return amount == franc.amount;
-    }
+    
 
 
 }
