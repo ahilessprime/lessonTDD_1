@@ -29,6 +29,10 @@ public class Money {
         return currency;
     }
 
+    public Money plus(Money addend){
+        return new Money(amount+addend.amount, currency);
+    }
+
     public static Money dollar(int amount){
         return new Money(amount, "USD");
     }
