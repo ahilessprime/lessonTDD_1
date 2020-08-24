@@ -2,13 +2,18 @@ package lessonTDD_multiCurrency;
 
 public class Dollar extends Money {
 
-
-    public Dollar(int amount){
-        this.amount  = amount;
+    public Dollar(int amount, String currency){
+        super(amount, currency);
     }
 
+    @Override
     public Money times(int multiplier){
-        return new Dollar(amount*multiplier);
+        return Money.dollar(amount*multiplier);
+    }
+
+    @Override
+    public String currency(){
+        return currency;
     }
 
 
