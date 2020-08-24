@@ -1,13 +1,10 @@
 package lessonTDD_multiCurrency;
 
-public abstract class Money {
+public class Money {
 
     protected String currency;
+    private int amount;
 
-    public abstract Money times(int multiplayer);
-
-
-    protected int amount;
 
     public Money(int amount, String currency){
         this.amount = amount;
@@ -15,16 +12,21 @@ public abstract class Money {
     }
 
 
+    public  Money times(int multiplayer){
+        return new Money(amount * multiplayer, currency);
+    }
+
+
     @Override
     public boolean equals(Object object){
         Money money = (Money) object;
         return amount == money.amount
-                && getClass().equals(money.getClass());
+                && currency.equals(money.currency());
 
     }
 
     public  String currency(){
-        return currency();
+        return currency;
     }
 
     public static Money dollar(int amount){
@@ -32,5 +34,10 @@ public abstract class Money {
     }
     public static Money franc(int amount){
         return new Franc(amount, "CHF");
+    }
+
+    @Override
+    public String toString(){
+        return amount+" "+currency;
     }
 }
