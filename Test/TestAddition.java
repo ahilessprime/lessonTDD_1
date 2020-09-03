@@ -3,6 +3,7 @@ package Test;
 import lessonTDD_multiCurrency.Bank;
 import lessonTDD_multiCurrency.Expression;
 import lessonTDD_multiCurrency.Money;
+import lessonTDD_multiCurrency.Summ;
 import org.junit.Test;
 
 
@@ -46,6 +47,31 @@ public class TestAddition {
         Bank bank = new Bank();
         Money reduced = bank.reduce(sum, "USD");
         assertEquals(Money.dollar(10), reduced);
+    }
+
+    @Test
+    public void TestPlusReturnsSum(){
+
+        Money five = Money.dollar(5);
+        Expression result = five.plus(five);
+        Summ sum = (Summ) result;
+        assertEquals(five, sum.augend);
+        assertEquals(five, sum.addend);
+    }
+
+    @Test
+    public void TestReduceSumm(){
+        Expression sum = new Summ(Money.dollar(3), Money.dollar(4));
+        Bank bank = new Bank();
+        Money result = bank.reduce(sum, "USD");
+        assertEquals(Money.dollar(7), result);
+    }
+
+    @Test
+    public void TestReduceMoney(){
+        Bank bank = new Bank();
+        Money result = bank.reduce(Money.dollar(1), "USD");
+        assertEquals(Money.dollar(1), result);
     }
 
 

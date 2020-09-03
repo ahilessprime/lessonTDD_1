@@ -3,7 +3,7 @@ package lessonTDD_multiCurrency;
 public class Money implements Expression{
 
     protected String currency;
-    private int amount;
+    protected int amount;
 
 
     public Money(int amount, String currency){
@@ -14,6 +14,10 @@ public class Money implements Expression{
 
     public  Money times(int multiplayer){
         return new Money(amount * multiplayer, currency);
+    }
+
+    public Money reduce(String to){
+        return this;
     }
 
 
@@ -30,7 +34,7 @@ public class Money implements Expression{
     }
 
     public Expression plus(Money addend){
-        return new Money(amount+addend.amount, currency);
+        return new Summ(this, addend);
     }
 
     public static Money dollar(int amount){
@@ -39,6 +43,8 @@ public class Money implements Expression{
     public static Money franc(int amount){
         return new Money(amount, "CHF");
     }
+
+
 
     @Override
     public String toString(){
