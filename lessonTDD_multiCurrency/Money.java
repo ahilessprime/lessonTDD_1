@@ -12,7 +12,7 @@ public class Money implements Expression{
     }
 
 
-    public  Money times(int multiplayer){
+    public  Expression times(int multiplayer){
         return new Money(amount * multiplayer, currency);
     }
 
@@ -34,7 +34,7 @@ public class Money implements Expression{
         return currency;
     }
 
-    public Expression plus(Money addend){
+    public Expression plus(Expression addend){
         return new Summ(this, addend);
     }
 
