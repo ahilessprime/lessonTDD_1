@@ -12,8 +12,8 @@ public class Money implements Expression{
     }
 
 
-    public  Expression times(int multiplayer){
-        return new Money(amount * multiplayer, currency);
+    public  Expression times(int multiplier){
+        return new Money(amount * multiplier, currency);
     }
 
     public Money reduce(Bank bank, String to){

@@ -17,6 +17,13 @@ public class Summ implements Expression{
 
     @Override
     public Expression plus(Expression added) {
-        return null;
+        return new Summ(this,addend);
     }
+
+    @Override
+    public Expression times(int multiplier){
+        return new Summ(augend.times(multiplier), addend.times(multiplier));
+    }
+
+
 }
